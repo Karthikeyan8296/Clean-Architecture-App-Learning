@@ -1,19 +1,18 @@
 package com.example.cleanarchitecture.presentation.screens.Home
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
 
 class HomeViewModel : ViewModel() {
 
     //it is private because it should be accessed only inside the view model
-    private val _counter = MutableLiveData(0)
+    private var _counter = MutableStateFlow(0)
 
     //observed data to the UI
-    val counter: LiveData<Int> = _counter
+    val counter = _counter.asStateFlow()
 
     fun increaseValue() {
-        val current = _counter.value ?: 0
-        _counter.value = current + 1
+        _counter.value += 1
     }
 }

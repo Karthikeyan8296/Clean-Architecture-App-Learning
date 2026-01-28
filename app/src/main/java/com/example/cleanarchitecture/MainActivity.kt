@@ -2,10 +2,14 @@ package com.example.cleanarchitecture
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.lifecycleScope
 import com.example.cleanarchitecture.presentation.screens.Home.HomeFragment
+import com.example.cleanarchitecture.presentation.screens.Home.HomeViewModel
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
