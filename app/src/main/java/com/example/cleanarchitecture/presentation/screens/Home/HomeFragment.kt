@@ -23,6 +23,13 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        view.findViewById<Button>(R.id.btnContinue).setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainer, UserFragment())
+                .addToBackStack(null)
+                .commit()
+        }
+
         val increase = view.findViewById<Button>(R.id.btnIncrease)
         val value = view.findViewById<TextView>(R.id.textView)
 
@@ -54,13 +61,11 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         }
 
         val message = Channel<Int>()
-
         //producer
         lifecycleScope.launch {
             message.send(1)
             message.send(2)
         }
-
         //consumer
         lifecycleScope.launch {
             Log.d("hoo", "channel values ${message.receive()}")
