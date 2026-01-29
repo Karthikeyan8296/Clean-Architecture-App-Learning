@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.example.cleanarchitecture.R
@@ -25,6 +26,8 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val viewModel = ViewModelProvider(this)[HomeViewModel::class.java]
 
         view.findViewById<Button>(R.id.btnContinue).setOnClickListener {
             parentFragmentManager.beginTransaction()

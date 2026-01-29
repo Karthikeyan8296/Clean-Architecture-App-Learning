@@ -36,7 +36,9 @@ class RoomFragment : Fragment(R.layout.fragment_room) {
         val factory = RoomViewModelFactory(repository)
 
         //create viewModel now
-        viewModel = ViewModelProvider(this, factory)[RoomViewModel::class.java]
+        //val viewModel = ViewModelProvider(this, factory)[RoomViewModel::class.java]
+
+        val viewModel: RoomViewModel by viewModels<RoomViewModel> { factory }
 
         val name = view.findViewById<EditText>(R.id.nameField)
         val age = view.findViewById<EditText>(R.id.ageField)

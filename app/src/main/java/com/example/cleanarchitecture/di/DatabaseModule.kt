@@ -6,6 +6,8 @@ import com.example.cleanarchitecture.data.local.DAO.UserDAO
 import com.example.cleanarchitecture.data.local.database.AppDatabase
 
 object DatabaseModule{
+
+    //database builder - It creates and returns the Room database.
     fun providerDatabase(context: Context): AppDatabase{
         return Room.databaseBuilder(
             context.applicationContext,
