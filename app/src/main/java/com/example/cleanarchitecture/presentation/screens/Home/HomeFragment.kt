@@ -18,6 +18,9 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
+
+
+    //can only create viewModel with empty constructor!!!
     private val viewModel: HomeViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -26,6 +29,14 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         view.findViewById<Button>(R.id.btnContinue).setOnClickListener {
             parentFragmentManager.beginTransaction()
                 .replace(R.id.fragmentContainer, UserFragment())
+                //we can name the transaction
+                .addToBackStack("user Transaction")
+                .commit()
+        }
+
+        view.findViewById<Button>(R.id.btnNext).setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainer, RoomFragment())
                 .addToBackStack(null)
                 .commit()
         }

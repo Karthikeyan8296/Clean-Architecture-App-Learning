@@ -1,6 +1,8 @@
 package com.example.cleanarchitecture
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -29,5 +31,12 @@ class MainActivity : AppCompatActivity() {
                 .addToBackStack(null)
                 .commit()
         }
+
+//        findViewById<Button>(R.id.navigateBtn).setOnClickListener {
+//            val intent = Intent(applicationContext, MainActivity2::class.java)
+//            startActivity(intent)
+//        }
+
+
     }
 }
