@@ -48,4 +48,14 @@
         app:layout_constraintStart_toStartOf="@+id/btnContinue"
         app:layout_constraintTop_toBottomOf="@+id/btnContinue" />
 
+    <Button
+        android:id="@+id/quotesBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Quotes"
+        android:layout_marginTop="12dp"
+        app:layout_constraintEnd_toEndOf="@+id/btnNext"
+        app:layout_constraintStart_toStartOf="@+id/btnNext"
+        app:layout_constraintTop_toBottomOf="@+id/btnNext" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

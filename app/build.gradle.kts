@@ -79,4 +79,18 @@ dependencies {
     ksp("com.google.dagger:hilt-android-compiler:2.57.1")
 
     implementation("com.google.dagger:hilt-android:2.57.1")
+
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+
+    // Core Moshi library
+    implementation("com.squareup.moshi:moshi:1.15.0")
+
+    // Kotlin utilities (includes KotlinJsonAdapterFactory if needed for runtime reflection)
+    implementation("com.squareup.moshi:moshi-kotlin:1.15.0")
+
+    implementation ("com.squareup.retrofit2:converter-moshi:2.4.0")
+
+    // Compile-time code generation (recommended)
+    ksp("com.squareup.moshi:moshi-kotlin-codegen:1.15.0")
+
 }

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.screens.Home.QuoteFragment">
+
+    <TextView
+        android:id="@+id/txtQuote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Quote"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtAuthor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="author"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/txtQuote"
+        app:layout_constraintStart_toStartOf="@+id/txtQuote"
+        app:layout_constraintTop_toBottomOf="@+id/txtQuote" />
+
+    <Button
+        android:id="@+id/randomBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Random"
+        android:layout_marginTop="44dp"
+        app:layout_constraintEnd_toEndOf="@+id/txtQuote"
+        app:layout_constraintStart_toStartOf="@+id/txtQuote"
+        app:layout_constraintTop_toBottomOf="@+id/txtAuthor" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

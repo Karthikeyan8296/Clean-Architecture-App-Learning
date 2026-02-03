@@ -45,6 +45,13 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 .commit()
         }
 
+        view.findViewById<Button>(R.id.quotesBtn).setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainer, QuoteFragment())
+                .addToBackStack(null)
+                .commit()
+        }
+
         val increase = view.findViewById<Button>(R.id.btnIncrease)
         val value = view.findViewById<TextView>(R.id.textView)
 
