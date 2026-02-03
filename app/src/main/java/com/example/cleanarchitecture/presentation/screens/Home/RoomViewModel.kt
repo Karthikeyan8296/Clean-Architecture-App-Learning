@@ -4,13 +4,17 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.cleanarchitecture.data.local.Entity.UserEntity
 import com.example.cleanarchitecture.data.repository.UserRepositoryImpl
+import com.example.cleanarchitecture.domain.repository.UserRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class RoomViewModel(
-    private val userRepository: UserRepositoryImpl
+@HiltViewModel
+class RoomViewModel @Inject constructor (
+    private val userRepository: UserRepository
 ) : ViewModel() {
 
     //get all the user data

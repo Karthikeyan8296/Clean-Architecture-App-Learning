@@ -11,8 +11,11 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
 import com.example.cleanarchitecture.presentation.screens.Home.HomeFragment
 import com.example.cleanarchitecture.presentation.screens.Home.HomeViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
+
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,12 +34,5 @@ class MainActivity : AppCompatActivity() {
                 .addToBackStack(null)
                 .commit()
         }
-
-//        findViewById<Button>(R.id.navigateBtn).setOnClickListener {
-//            val intent = Intent(applicationContext, MainActivity2::class.java)
-//            startActivity(intent)
-//        }
-
-
     }
 }

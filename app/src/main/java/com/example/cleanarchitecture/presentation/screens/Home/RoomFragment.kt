@@ -1,44 +1,36 @@
 package com.example.cleanarchitecture.presentation.screens.Home
 
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.example.cleanarchitecture.R
-import com.example.cleanarchitecture.data.local.DAO.UserDAO
-import com.example.cleanarchitecture.data.repository.UserRepositoryImpl
-import com.example.cleanarchitecture.di.DatabaseModule
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class RoomFragment : Fragment(R.layout.fragment_room) {
-
-    private lateinit var viewModel: RoomViewModel
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         //Get the DAO from DI
-        val userDAO = DatabaseModule.providerUserDAO(requireContext())
+//        val userDAO = DatabaseModule.providerUserDAO(requireContext())
 
         //crate repository
-        val repository = UserRepositoryImpl(userDAO)
+//        val repository = UserRepositoryImpl(userDAO)
 
         //crate factory
-        val factory = RoomViewModelFactory(repository)
+//        val factory = RoomViewModelFactory(repository)
 
         //create viewModel now
         //val viewModel = ViewModelProvider(this, factory)[RoomViewModel::class.java]
 
-        val viewModel: RoomViewModel by viewModels<RoomViewModel> { factory }
+        val viewModel: RoomViewModel by viewModels()
 
         val name = view.findViewById<EditText>(R.id.nameField)
         val age = view.findViewById<EditText>(R.id.ageField)
@@ -50,10 +42,9 @@ class RoomFragment : Fragment(R.layout.fragment_room) {
             val name = name.text.toString()
             val age = age.text.toString()
 
-            if(name.isNotBlank() && age.isNotBlank()){
+            if (name.isNotBlank() && age.isNotBlank()) {
                 viewModel.insertUser(
-                    name = name,
-                    age = age.toInt()
+                    name = name, age = age.toInt()
                 )
             }
         }

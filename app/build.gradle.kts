@@ -1,7 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    id("kotlin-kapt")
+    id("com.google.devtools.ksp")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -71,6 +72,11 @@ dependencies {
     // Kotlin extensions (Coroutines support)
     implementation ("androidx.room:room-ktx:2.6.1")
 
-    // Annotation processor (KAPT)
-    kapt ("androidx.room:room-compiler:2.6.1")
+    // Ksp for room
+    ksp("androidx.room:room-compiler:2.6.1")
+
+    //ksp for hilt
+    ksp("com.google.dagger:hilt-android-compiler:2.57.1")
+
+    implementation("com.google.dagger:hilt-android:2.57.1")
 }
