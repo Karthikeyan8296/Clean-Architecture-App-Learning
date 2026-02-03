@@ -32,8 +32,9 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         view.findViewById<Button>(R.id.btnContinue).setOnClickListener {
             parentFragmentManager.beginTransaction()
                 .replace(R.id.fragmentContainer, UserFragment())
-                //we can name the transaction
+                //name any - its is used for debugging
                 .addToBackStack("user Transaction")
+                //it starts the life cycle
                 .commit()
         }
 
